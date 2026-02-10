@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Ana 💖</title>
+  <style>
+    /* General page styling */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #FFC0CB; /* Soft pink background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      transition: all 0.5s ease;
+    }
+
+    /* Container for page content */
+    .container {
+      width: 90%;
+      max-width: 400px;
+    }
+
+    /* Hidden pages */
+    .page {
+      display: none;
+    }
+
+    /* Show active page */
+    .active {
+      display: block;
+    }
+
+    /* Buttons styling */
+    button {
+      margin: 15px;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #FF69B4;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #FF1493;
+    }
+
+    /* GIF styling */
+    img {
+      max-width: 100%;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Page 1: Introduction -->
+    <div id="page1" class="page active">
+      <h1>Hi Ana! 💖</h1>
+      <p>es saiti shentvis babee!</p>
+      <button onclick="nextPage()">Next</button>
+    </div>
+
+    <!-- Page 2: Will you be my Valentine? -->
+    <div id="page2" class="page">
+      <h1>Will you be my Valentine? 💌</h1>
+      <button onclick="showGif('yes')">Yes</button>
+      <button onclick="showGif('no')">No</button>
+    </div>
+
+    <!-- Page 3: GIF Result -->
+    <div id="page3" class="page">
+      <h1 id="gifText"></h1>
+      <img id="gifImage" src="" alt="GIF">
+    </div>
+
+  </div>
+
+  <script>
+    // Function to go from Page 1 to Page 2
+    function nextPage() {
+      document.getElementById('page1').classList.remove('active');
+      document.getElementById('page2').classList.add('active');
+    }
+
+    // Function to show GIF based on choice
+    function showGif(choice) {
+      document.getElementById('page2').classList.remove('active');
+      document.getElementById('page3').classList.add('active');
+
+      const gifImage = document.getElementById('gifImage');
+      const gifText = document.getElementById('gifText');
+
+      if (choice === 'yes') {
+        gifText.textContent = "Yay! 💖 Happy Valentine's Day!";
+        gifImage.src = "https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif"; // Happy GIF
+      } else {
+        gifText.textContent = "Oh no 😢 But you're still amazing!";
+        gifImage.src = "https://media.giphy.com/media/l3vR85PnGsBwu1PFK/giphy.gif"; // Funny/disappointment GIF
+      }
+    }
+  </script>
+</body>
+</html>
